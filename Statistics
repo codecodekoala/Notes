@@ -1,5 +1,22 @@
+[Data Preprocessing]
+
+Merging Spreadsheets with Python–Append
+https://towardsdatascience.com/merging-spreadsheets-with-python-append-f6de2d02e3f3
+
 [Regression]
+plotly.express.scatter -- trendline
+https://plot.ly/python-api-reference/generated/plotly.express.scatter.html
+
 https://carrylaw.github.io/bml/2017/10/13/ml02/
+
+A one-dimensional polynomial class.
+https://docs.scipy.org/doc/numpy/reference/routines.polynomials.poly1d.html
+
+[Enthought Traning] Scientific Computing in Python
+https://blog.csdn.net/u014135091/article/details/52388212?utm_source=blogxgwz7
 
 python安装sklearn模块
 https://blog.csdn.net/dlh_sycamore/article/details/79584039
+
+手把手教你用Python进行回归（附代码、学习资料）
+https://blog.csdn.net/tMb8Z9Vdm66wH68VX1/article/details/79922750

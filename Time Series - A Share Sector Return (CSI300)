@@ -1,0 +1,63 @@
+df = pd.read_excel(
+    "C:\Jupyter Working Path\Raw Data\CSI300 Sector Daily Return 20200312.xlsx",
+    skiprows=1)
+
+trace1 = go.Scatter(x=df.Date,
+                    y=df['Financials'],
+                    name="Financials",
+                    mode='lines')
+trace2 = go.Scatter(x=df.Date,
+                    y=df['Consumer Staples'],
+                    name="Consumer Staples",
+                    mode='lines')
+trace3 = go.Scatter(x=df.Date,
+                    y=df['Consumer Discretionary'],
+                    name="Consumer Discretionary",
+                    mode='lines')
+trace4 = go.Scatter(x=df.Date,
+                    y=df['Information Technology'],
+                    name="Information Technology",
+                    mode='lines')
+trace5 = go.Scatter(x=df.Date,
+                    y=df['Health Care'],
+                    name="Health Care",
+                    mode='lines')
+trace6 = go.Scatter(x=df.Date,
+                    y=df['Materials'],
+                    name="Materials",
+                    mode='lines')
+trace7 = go.Scatter(x=df.Date,
+                    y=df['Utilities'],
+                    name="Utilities",
+                    mode='lines')
+trace8 = go.Scatter(x=df.Date,
+                    y=df['Telecommunication Services'],
+                    name="Telecommunication Services",
+                    mode='lines')
+trace9 = go.Scatter(x=df.Date, y=df['Energy'], name="Energy", mode='lines')
+trace10 = go.Scatter(x=df.Date,
+                     y=df['Industrials'],
+                     name="Industrials",
+                     mode='lines')
+
+data = [
+    trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9,
+    trace10
+]
+
+layout = go.Layout(
+    title='CSI300 Sector Return',
+    xaxis=dict(rangeselector=dict(buttons=list([
+        dict(step="all"),
+        dict(count=7, label="7d", step="day", stepmode="backward"),
+        dict(count=1, label="1m", step="month", stepmode="backward"),
+        dict(count=6, label="6m", step="month", stepmode="backward"),
+        dict(count=1, label="YTD", step="year", stepmode="todate"),
+        dict(count=1, label="1y", step="year", stepmode="backward")
+    ])),
+               rangeslider=dict(visible=True),
+               type="date"))
+plotly.offline.init_notebook_mode()
+plotly.offline.plot(dict(data=data, layout=layout),
+                    auto_open=True,
+                    filename=("CSI300 Sector Daily Return 20200312.html"))

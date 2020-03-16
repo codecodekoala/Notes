@@ -1,0 +1,62 @@
+df = pd.read_excel("C:\Jupyter Working Path\Raw Data\A Share Info 20200312.xlsx",
+                   sheet_name='PY')
+df0 = pd.DataFrame(df)
+
+
+Financials = df0.query('GICS_Sector == "Financials"')
+Utilities = df0.query('GICS_Sector == "Utilities"')
+Materials = df0.query('GICS_Sector == "Materials"')
+InfoTech = df0.query('GICS_Sector == "Information Technology"')
+HealthCare = df0.query('GICS_Sector == "Health Care"')
+ConDis = df0.query('GICS_Sector == "Consumer Discretionary"')
+Industrials = df0.query('GICS_Sector == "Industrials"')
+Energy = df0.query('GICS_Sector == "Energy"')
+ComSer = df0.query('GICS_Sector == "Communication Services"')
+RealEstate = df0.query('GICS_Sector == "Real Estate"')
+ConSta = df0.query('GICS_Sector == "Consumer Staples"')
+
+F1 = Financials.quantile(0.05)
+F2 = Financials.quantile(0.95)
+U1 = Utilities.quantile(0.05)
+U2 = Utilities.quantile(0.95)
+M1 = Materials.quantile(0.05)
+M2 = Materials.quantile(0.95)
+IF1 = InfoTech.quantile(0.05)
+IF2 = InfoTech.quantile(0.95)
+H1 = HealthCare.quantile(0.05)
+H2 = HealthCare.quantile(0.95)
+CD1 = ConDis.quantile(0.05)
+CD2 = ConDis.quantile(0.95)
+ID1 = Industrials.quantile(0.05)
+ID2 = Industrials.quantile(0.95)
+E1 = Energy.quantile(0.05)
+E2 = Energy.quantile(0.95)
+CM1 = ComSer.quantile(0.05)
+CM2 = ComSer.quantile(0.95)
+R1 = RealEstate.quantile(0.05)
+R2 = RealEstate.quantile(0.95)
+CS1 = ConSta.quantile(0.05)
+CS2 = ConSta.quantile(0.95)
+
+F1
+F2
+U1
+U2
+M1
+M2
+IF1
+IF2
+H1
+H2
+CD1
+CD2
+ID1
+ID2
+E1
+E2
+CM1
+CM2
+R1
+R2
+CS1
+CS2

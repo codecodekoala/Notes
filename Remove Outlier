@@ -1,0 +1,6 @@
+test = df0.query('GICS_Sector == "Information Technology"')
+
+a = test['Normalized_ROE']
+aa = a.between(a.quantile(.05),a.quantile(.95))
+
+x = a[aa]

@@ -1,0 +1,72 @@
+coffhsi = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "1.1")
+coffhscei = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "1.2")
+coffcsi300 = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "1.3")
+
+multihsi = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "2.1")
+multihscei = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "2.2")
+multicsi300 = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "2.3")
+
+pgfhsi = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "3.1")
+pgfhscei = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "3.2")
+pgfcsi300 = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "3.3")
+
+sefhsi = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "4.1")
+sefhscei = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "4.2")
+sefcsi300 = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "4.3")
+
+milestonehsi = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "5.1")
+milestonehscei = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "5.2")
+milestonecsi300 = pd.read_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return (working)\Adjusted.xlsx",
+    "5.3")
+
+all_df_list = [
+    coffhsi, coffhscei, coffcsi300, multihsi, multihscei, multicsi300, pgfhsi,
+    pgfhscei, pgfcsi300, pgfhsi, pgfhscei, pgfcsi300, sefhsi, sefhscei,
+    sefcsi300, milestonehsi, milestonehscei, milestonecsi300
+]
+appended_df = pd.concat(all_df_list)
+appended_df.to_excel(
+    r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return 20200312.xlsx",
+    index=False)
+
+
+
+df2 = pd.read_excel(r"C:\Jupyter Working Path\Raw Data\Portfolio and Market Return 20200312.xlsx")
+fig = px.scatter(df2,
+                 x="Index_10D_Return",
+                 y="Portfolio_10D_Return",
+                 facet_col="Portfolio",
+                 facet_col_wrap=2,
+                 color="Index",
+                 trendline="lowess")
+plotly.offline.plot(fig, filename='Portfolio and Market Return 20200312.html', auto_open=True)
+   

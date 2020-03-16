@@ -1,0 +1,8 @@
+df2 = pd.read_excel(r"C:\Jupyter Working Path\Raw Data\CSI300 Sector Daily Return (30D for Corr) 20200305.xlsx", skiprows=1)
+x = df2.corr()
+mask = np.triu(np.ones_like(x, dtype=np.bool))
+plt.figure(figsize=(8,6))
+sns.heatmap(x, mask=mask, annot=True, cmap='Blues')
+plt.xticks(rotation=90)
+plt.yticks(rotation=360)
+plt.savefig("C:\Jupyter Working Path\Program\CSI300 Sector Correlation Matrix 20200305.png",dpi=500,bbox_inches = 'tight')

@@ -1,0 +1,43 @@
+df = pd.read_excel(
+    "C:\Jupyter Working Path\Raw Data\A Share Info 20200305.xlsx", sheet_name = "BBG A Share")
+df0 = pd.DataFrame(df)
+
+
+Financials = df0.query('GICS_Sector == "Financials"')
+
+myfigure = go.Scatter3d(
+    x=Financials['Normalized_ROE'],
+    y=Financials['Raw_Beta_SHSZ300'],
+    z=Financials['Price_To_Book'],
+    hovertext=Financials['hovertext'],
+    mode='markers',
+    marker=dict(size=3,
+                symbol=Financials['Type_CSI300_Instit'].replace(
+                    "circle-open",
+                    "circle-open").replace("circle", "circle").replace(
+                        "diamond", "diamond").replace("diamond-open",
+                                                      "diamond-open"),
+                color=Financials['5-Day_Average_Volume'],
+                colorscale='Viridis',
+                opacity=0.8,
+                showscale=True,
+                colorbar={
+                    "thickness": 15,
+                    "len": 0.5,
+                    "x": 1,
+                    "y": 0.6
+                }))
+
+mylayout = go.Layout(scene=dict(xaxis=dict(title="Normalized_ROE"),
+                                yaxis=dict(title="Raw_Beta_SHSZ300"),
+                                zaxis=dict(title="Price_To_Book")),
+                     height=1500,
+                     width=1500,
+                     title='A Share Financials (With Outlier)')
+
+plotly.offline.plot({
+    "data": [myfigure],
+    "layout": mylayout
+},
+                    auto_open=True,
+                    filename=("A Share Financials (With Outlier).html"))
